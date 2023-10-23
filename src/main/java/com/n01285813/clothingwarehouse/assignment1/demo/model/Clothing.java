@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 
+import java.time.LocalDateTime;
+
 
 @Data
 @Builder
@@ -18,6 +20,7 @@ public class Clothing {
     private int yearOfCreation;
     @Min(value=1000, message = "The Price must be minimum of $1000")
     private double price;
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     private Brand brandFrom;
 
