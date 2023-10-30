@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ClothesSearchByDateDto {
 
-    private String name;
+    private String clothingName;
     private String startDate;
     private String endDate;
 }

@@ -16,18 +16,20 @@ import java.util.Optional;
 @RequestMapping("/clothinglist")
 public class ClothingListController {
 
-    private static final int PAGE_SIZE = 4;
+    private static final int PAGE_SIZE = 5;
 
     private ClothingRepository clothingRepo;
 
     private ClothingRepositoryPaginated clothingRepoPaginated;
 
-    public ClothingListController(ClothingRepository clothingRepo, ClothingRepositoryPaginated clothingRepoPaginated) {
+    public ClothingListController(ClothingRepository clothingRepo,
+                                  ClothingRepositoryPaginated clothingRepoPaginated) {
+
         this.clothingRepo = clothingRepo;
         this.clothingRepoPaginated = clothingRepoPaginated;
     }
 
-
+    @GetMapping
     public String showClothing(Model model) {
         return "clothinglist";
     }
@@ -48,7 +50,9 @@ public class ClothingListController {
     @PostMapping
     public String searchClothingByDate(@ModelAttribute ClothesSearchByDateDto clothingByDateDto, Model model) {
         var dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        model.addAttribute("clothes", clothingRepo.findByNameStartsWithAndCreatedAtBetween(clothingByDateDto.getName(), LocalDate.parse(clothingByDateDto.getStartDate(), dateFormatter), LocalDate.parse(clothingByDateDto.getEndDate(), dateFormatter)));
+        model.addAttribute("clothes", clothingRepo.findByNameStartsWithAndCreatedAtBetween(
+                clothingByDateDto.getClothingName(), LocalDate.parse(clothingByDateDto.getStartDate(), dateFormatter),
+                LocalDate.parse(clothingByDateDto.getEndDate(), dateFormatter)));
         return "clothinglist";
     }
 
@@ -60,7 +64,8 @@ public class ClothingListController {
         if (page < 0 || page >= totalPages) {
             return "clothinglist";
         }
-        var clothingPage = clothingRepoPaginated.findAll(PageRequest.of(pageToSwitch.orElse(0), PAGE_SIZE));
+        var clothingPage = clothingRepoPaginated.findAll(PageRequest.of(pageToSwitch.orElse(0),
+                PAGE_SIZE));
         model.addAttribute("clothes", clothingPage.getContent());
         model.addAttribute("currentPage", clothingPage.getNumber());
         return "clothinglist";
