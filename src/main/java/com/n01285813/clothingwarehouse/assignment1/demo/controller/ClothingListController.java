@@ -1,5 +1,6 @@
 package com.n01285813.clothingwarehouse.assignment1.demo.controller;
 
+import com.n01285813.clothingwarehouse.assignment1.demo.model.Clothing;
 import com.n01285813.clothingwarehouse.assignment1.demo.model.dto.ClothesSearchByDateDto;
 import com.n01285813.clothingwarehouse.assignment1.demo.model.repository.ClothingRepository;
 import com.n01285813.clothingwarehouse.assignment1.demo.model.repository.ClothingRepositoryPaginated;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -48,10 +50,11 @@ public class ClothingListController {
     }
 
     @PostMapping
-    public String searchClothingByDate(@ModelAttribute ClothesSearchByDateDto clothingByDateDto, Model model) {
-        var dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        model.addAttribute("clothes", clothingRepo.findByNameStartsWithAndCreatedAtBetween(
-                clothingByDateDto.getBrand(), clothingByDateDto.getYearOfCreation()));
+    public String searchClothingByBrand(@ModelAttribute ClothesSearchByDateDto clothingByDateDto, Model model) {
+        List<Clothing> clothingList = clothingRepo.findByBrandFromAndYearOfCreation(
+                "Balenciaga", 2022);
+
+        model.addAttribute("clothing", clothingList);
         return "clothinglist";
     }
 

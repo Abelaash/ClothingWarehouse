@@ -16,7 +16,7 @@
 <div class="d-flex flex-row mb-3">
     <div
             class="card ms-3 me-3"
-            th:each="clothing: ${clothes}"
+            th:each="clothing: ${clothing}"
             style="width: 18rem"
     >
         <div class="card-body">
@@ -38,15 +38,15 @@
 >
     <form class="mt-3" method="post" th:object="${clothingByDateDto}">
         <div class="mb-3">
-            <label for="brand" class="form-label"
+            <label for="brandFrom" class="form-label"
             >Clothing name:
             </label>
             <!--By using th:field we "bind" fighter model java fields to html input that we will provide-->
             <input
                     type="text"
                     class="form-control"
-                    id="brand"
-                    th:field="*{brand}"
+                    id="brandFrom"
+                    th:field="*{brandFrom}"
                     aria-describedby="clothingHelp"
             />
             <div id="clothingHelp" class="form-text">

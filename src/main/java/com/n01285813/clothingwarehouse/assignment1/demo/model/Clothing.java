@@ -22,7 +22,6 @@ public class Clothing {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank
     private int clothingID;
     @NotBlank(message = "The Clothing must have a name")
     private String clothingName;

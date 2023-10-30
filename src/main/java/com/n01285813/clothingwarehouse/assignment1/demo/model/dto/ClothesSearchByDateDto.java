@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ClothesSearchByDateDto {
 
-    private Brand brand;
+    private String brandFrom;
     private int yearOfCreation;
 }
