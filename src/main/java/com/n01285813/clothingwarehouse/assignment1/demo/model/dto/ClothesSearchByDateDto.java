@@ -1,5 +1,6 @@
 package com.n01285813.clothingwarehouse.assignment1.demo.model.dto;
 
+import com.n01285813.clothingwarehouse.assignment1.demo.model.Clothing.Brand;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -7,7 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ClothesSearchByDateDto {
 
-    private String clothingName;
-    private String startDate;
-    private String endDate;
+    private Brand brand;
+    private int yearOfCreation;
 }

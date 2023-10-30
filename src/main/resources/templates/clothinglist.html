@@ -38,40 +38,20 @@
 >
     <form class="mt-3" method="post" th:object="${clothingByDateDto}">
         <div class="mb-3">
-            <label for="clothingName" class="form-label"
+            <label for="brand" class="form-label"
             >Clothing name:
             </label>
             <!--By using th:field we "bind" fighter model java fields to html input that we will provide-->
             <input
                     type="text"
                     class="form-control"
-                    id="clothingName"
-                    th:field="*{clothingName}"
+                    id="brand"
+                    th:field="*{brand}"
                     aria-describedby="clothingHelp"
             />
             <div id="clothingHelp" class="form-text">
                 Provide decent clothing name prefix
             </div>
-        </div>
-        <div class="mb-3">
-            <label for="startDate" class="form-label">Start Date: </label>
-            <input
-                    type="date"
-                    id="startDate"
-                    th:field="*{startDate}"
-                    name="startDate"
-                    value="2023-02-17"
-            />
-        </div>
-        <div class="mb-3">
-            <label for="endDate" class="form-label">End Date: </label>
-            <input
-                    type="date"
-                    id="endDate"
-                    th:field="*{endDate}"
-                    name="endDate"
-                    value="2023-02-17"
-            />
         </div>
         <button class="btn btn-primary mt-5">
             Search By Name Prefix and Date

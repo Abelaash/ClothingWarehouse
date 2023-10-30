@@ -9,7 +9,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDateTime  ;
 
 
 @Data
@@ -21,7 +21,9 @@ import java.time.LocalDateTime;
 public class Clothing {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long clothingID;
+    private Long id;
+    @NotBlank
+    private int clothingID;
     @NotBlank(message = "The Clothing must have a name")
     private String clothingName;
     @Min(value=2021, message = "The Year of creation must be at least 2021")

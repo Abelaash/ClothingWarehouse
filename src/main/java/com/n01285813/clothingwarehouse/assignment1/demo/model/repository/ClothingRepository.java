@@ -9,8 +9,8 @@ import java.util.List;
 
 public interface ClothingRepository extends CrudRepository<Clothing, Long> {
 
-    List<Clothing> findClothingBy(Brand brand);
-
-    List<Clothing> findByNameStartsWithAndCreatedAtBetween(String clothingName, LocalDate startDate, LocalDate endDate);
+//    List<Clothing> findClothingBy(Brand brand);
+//
+    List<Clothing> findByNameStartsWithAndCreatedAtBetween(Brand brand, int yearOfCreation);
 
 }

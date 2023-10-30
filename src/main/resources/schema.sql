@@ -1,5 +1,6 @@
-CREATE TABLE IF NOT EXISTS clothing (
-    clothingID IDENTITY,
+    CREATE TABLE IF NOT EXISTS clothing (
+    id IDENTITY,
+    clothingID INT NOT NULL,
     clothingName VARCHAR(50) NOT NULL,
     yearOfCreation INT NOT NULL,
     price DOUBLE NOT NULL,

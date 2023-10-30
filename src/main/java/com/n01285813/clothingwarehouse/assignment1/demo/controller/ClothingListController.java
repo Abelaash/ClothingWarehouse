@@ -51,8 +51,7 @@ public class ClothingListController {
     public String searchClothingByDate(@ModelAttribute ClothesSearchByDateDto clothingByDateDto, Model model) {
         var dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         model.addAttribute("clothes", clothingRepo.findByNameStartsWithAndCreatedAtBetween(
-                clothingByDateDto.getClothingName(), LocalDate.parse(clothingByDateDto.getStartDate(), dateFormatter),
-                LocalDate.parse(clothingByDateDto.getEndDate(), dateFormatter)));
+                clothingByDateDto.getBrand(), clothingByDateDto.getYearOfCreation()));
         return "clothinglist";
     }
 

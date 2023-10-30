@@ -17,20 +17,22 @@ public class 	Cpan228Assignment1Application {
 		SpringApplication.run(Cpan228Assignment1Application.class, args);
 	}
 
-	@Bean
-	public CommandLineRunner dataLoader(ClothingRepository repository) {
-		return args -> {
-			repository.save(Clothing.builder()
-					.clothingName("Pants 1")
-					.brandFrom(Brand.DIOR)
-					.yearOfCreation(2022)
-					.price(2000).build());
-
-			repository.save(Clothing.builder()
-					.clothingName("Pants 2")
-					.brandFrom(Brand.BALENCIAGA)
-					.yearOfCreation(2023)
-					.price(40000).build());
-		};
-	}
+//	@Bean
+//	public CommandLineRunner dataLoader(ClothingRepository repository) {
+//		return args -> {
+//			repository.save(Clothing.builder()
+//					.clothingID(1)
+//					.clothingName("Pants 1")
+//					.brandFrom(Brand.DIOR)
+//					.yearOfCreation(2022)
+//					.price(2000).build());
+//
+//			repository.save(Clothing.builder()
+//					.clothingID(2)
+//					.clothingName("Pants 2")
+//					.brandFrom(Brand.BALENCIAGA)
+//					.yearOfCreation(2023)
+//					.price(40000).build());
+//		};
+//	}
 }
